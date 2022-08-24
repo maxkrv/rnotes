@@ -1,0 +1,7 @@
+.header {
+    @apply bg-blue-900;
+
+    &__inner {
+        @apply h-16 flex items-center justify-between
+    }
+}
