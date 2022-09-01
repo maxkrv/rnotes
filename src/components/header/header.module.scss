@@ -4,4 +4,8 @@
     &__inner {
         @apply h-16 flex items-center justify-between
     }
+
+    &__buttons {
+        @apply flex items-center justify-between gap-5
+    }
 }
