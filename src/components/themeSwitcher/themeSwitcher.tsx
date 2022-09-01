@@ -1,16 +1,10 @@
-import React, {
-	ComponentPropsWithoutRef,
-	FC,
-	useEffect,
-	useState,
-} from "react";
+import React, { FC, useEffect, useState } from "react";
 import { useTheme } from "next-themes";
-import { BsSunFill } from "react-icons/bs";
-import { FaMoon } from "react-icons/fa";
+import LightModeIcon from "@mui/icons-material/LightMode";
+import DarkModeIcon from "@mui/icons-material/DarkMode";
+import { IconButton } from "@mui/material";
 
-interface ThemeSwitcherProps extends ComponentPropsWithoutRef<"button"> {}
-
-const ThemeSwitcher: FC<ThemeSwitcherProps> = ({ ...props }) => {
+const ThemeSwitcher: FC = () => {
 	const { systemTheme, theme, setTheme } = useTheme();
 	const [mounted, setMounted] = useState<boolean>(false);
 
@@ -25,24 +19,23 @@ const ThemeSwitcher: FC<ThemeSwitcherProps> = ({ ...props }) => {
 
 		if (currentTheme === "dark") {
 			return (
-				<BsSunFill
-					role="button"
-					className="w-7 h-7"
-					onClick={() => setTheme("light")}
-				/>
+				<IconButton onClick={() => setTheme("light")}>
+					<LightModeIcon
+						role="button"
+						className="w-7 h-7 fill-white"
+					/>
+				</IconButton>
 			);
 		} else {
 			return (
-				<FaMoon
-					role="button"
-					className="w-7 h-7"
-					onClick={() => setTheme("dark")}
-				/>
+				<IconButton onClick={() => setTheme("dark")}>
+					<DarkModeIcon role="button" className="w-7 h-7" />
+				</IconButton>
 			);
 		}
 	};
 
-	return <button {...props}>{renderThemeChanger()}</button>;
+	return <>{renderThemeChanger()}</>;
 };
 
 export default ThemeSwitcher;
