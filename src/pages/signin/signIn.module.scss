@@ -1,0 +1,19 @@
+.login {
+    @apply w-screen h-screen flex items-center justify-center;
+
+    &__wrapper {
+        @apply p-8 max-w-xl flex items-center flex-col gdark:bg-neutral-700;
+    }
+
+    &__title {
+        @apply uppercase mb-8 text-xl gdark:text-white;
+    }
+
+    &__button_wrapper {
+        @apply w-full flex flex-col gap-3;
+    }
+
+    &__button {
+        @apply w-full gdark:text-white;
+    }
+}
