@@ -15,6 +15,6 @@
     }
 
     &__button {
-        @apply w-full gdark:text-white;
+        @apply w-full gdark:text-white whitespace-nowrap;
     }
 }

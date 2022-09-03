@@ -1,11 +1,15 @@
 .header {
-    @apply bg-blue-900;
+    @apply w-full bg-blue-900 fixed top-0;
 
     &__inner {
         @apply h-16 flex items-center justify-between
     }
 
     &__buttons {
-        @apply flex items-center justify-between gap-5
+        @apply flex items-center justify-between gap-5;
+
+        @media (max-width: 425px) {
+            @apply gap-2
+        }
     }
 }
