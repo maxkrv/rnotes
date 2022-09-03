@@ -3,11 +3,14 @@ import classes from "./header.module.scss";
 import Container from "../ui/container/container";
 import ThemeSwitcher from "../themeSwitcher/themeSwitcher";
 import Link from "next/link";
-import { Button } from "@mui/material";
+import { Avatar, Button } from "@mui/material";
+import { signOut, useSession } from "next-auth/react";
 
 interface HeaderProps extends ComponentPropsWithoutRef<"header"> {}
 
 const Header: FC<HeaderProps> = ({ ...props }) => {
+	const { data: session } = useSession();
+
 	return (
 		<header className={classes.header} {...props}>
 			<Container>
@@ -19,15 +22,31 @@ const Header: FC<HeaderProps> = ({ ...props }) => {
 					</h1>
 					<div className={classes.header__buttons}>
 						<ThemeSwitcher />
-						<Link href="/login">
-							<Button
-								component="a"
-								variant="outlined"
-								className="text-white"
-							>
-								<a>Sign in</a>
-							</Button>
-						</Link>
+						{session ? (
+							<>
+								<Avatar
+									alt={session.user?.email as string}
+									src={session.user?.image as string}
+								/>
+								<Button
+									variant="outlined"
+									className="text-white"
+									onClick={() => signOut()}
+								>
+									Sign out
+								</Button>
+							</>
+						) : (
+							<Link href="/signin">
+								<Button
+									component="a"
+									variant="outlined"
+									className="text-white"
+								>
+									Sign in
+								</Button>
+							</Link>
+						)}
 					</div>
 				</div>
 			</Container>
