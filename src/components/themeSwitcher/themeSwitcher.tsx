@@ -20,16 +20,13 @@ const ThemeSwitcher: FC = () => {
 		if (currentTheme === "dark") {
 			return (
 				<IconButton onClick={() => setTheme("light")}>
-					<LightModeIcon
-						role="button"
-						className="w-7 h-7 fill-white"
-					/>
+					<LightModeIcon className="w-7 h-7 fill-white" />
 				</IconButton>
 			);
 		} else {
 			return (
 				<IconButton onClick={() => setTheme("dark")}>
-					<DarkModeIcon role="button" className="w-7 h-7" />
+					<DarkModeIcon className="w-7 h-7 fill-white" />
 				</IconButton>
 			);
 		}
