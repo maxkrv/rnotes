@@ -3,7 +3,7 @@ import { Session } from "next-auth";
 
 export const requireAuth = async (
 	context: GetSessionParams | undefined,
-	cb: ({ session }: Session) => { props: { session: unknown } }
+	cb: ({ session }: Session) => { props: { session: any } }
 ) => {
 	const session = await getSession(context);
 
@@ -15,5 +15,5 @@ export const requireAuth = async (
 		};
 	}
 
-	return cb(session);
+	return cb({ expires: "", session });
 };
