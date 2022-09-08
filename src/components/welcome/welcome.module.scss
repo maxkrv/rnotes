@@ -1,0 +1,16 @@
+.welcome {
+    transform: translate(-50%, -50%);
+    @apply absolute top-[50%] left-[50%] text-center;
+
+    &__title {
+        @apply text-6xl font-bold;
+    }
+
+    &__subtitle {
+        @apply mt-3 text-xl font-light;
+    }
+
+    &__link {
+        @apply uppercase text-blue-900 font-bold
+    }
+}
