@@ -1,0 +1,43 @@
+.wrapper {
+    &__button_wrapper {
+        a {
+            @apply relative text-xl bg-blue-900 rounded-b-none rounded-t-sm;
+        }
+    }
+
+    &__container {
+        @apply w-full h-[75vh] p-[20px] relative bg-neutral-300 gdark:bg-neutral-700 rounded-b-sm;
+
+        @media (max-width: 425px) {
+            @apply h-[65vh];
+        }
+    }
+
+    &__scroll {
+        @apply h-full w-full pb-8;
+    }
+
+    &__content {
+        @apply flex flex-col gap-8;
+    }
+
+    &__header {
+        @apply w-full flex items-center justify-center;
+
+        h2 {
+            @apply text-2xl uppercase;
+        }
+    }
+
+    &__button {
+        @apply bg-blue-900 hover:bg-blue-900 absolute right-[20px] bottom-[20px];
+
+        svg {
+            @apply fill-white;
+        }
+    }
+}
+
+.active {
+    background-color: #1565c0 !important;
+}
