@@ -4,7 +4,8 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import { Button, ButtonGroup, Fab, Tooltip } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
-import { Scrollbars } from "react-custom-scrollbars-2";
+import "react-perfect-scrollbar/dist/css/styles.css";
+import PerfectScrollbar from "react-perfect-scrollbar";
 
 interface WrapperProps extends ComponentPropsWithoutRef<"div"> {
 	children?: ReactNode;
@@ -57,11 +58,11 @@ const Wrapper: FC<WrapperProps> = ({
 				) : null}
 
 				<div className={classes.wrapper__scroll}>
-					<Scrollbars>
+					<PerfectScrollbar>
 						<div className={classes.wrapper__content}>
 							{children}
 						</div>
-					</Scrollbars>
+					</PerfectScrollbar>
 				</div>
 
 				{button ? (
